@@ -1,0 +1,105 @@
+/* ── Ribbon overrides ───────────────────────────────────── */
+.s4-zoom-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.s4-zoom-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  min-width: 36px;
+  text-align: center;
+}
+
+.s4-template-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Darker spinner for light ribbon background */
+.s4-spinner-dark {
+  border-color: rgba(10, 22, 40, 0.2);
+  border-top-color: var(--color-accent);
+}
+
+.ribbon-primary--wait {
+  background-color: var(--color-step-locked);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ── Workspace ──────────────────────────────────────────── */
+.s4-workspace {
+  background-color: var(--color-bg-preview);
+  position: relative;
+}
+
+/* Loading overlay */
+.s4-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  background-color: var(--color-bg-preview);
+  z-index: var(--z-base);
+}
+
+.s4-loading__spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(10, 22, 40, 0.12);
+  border-top-color: var(--color-accent);
+  border-radius: var(--radius-full);
+  animation: spin 0.8s linear infinite;
+}
+
+.s4-loading__text {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: rgba(255,255,255,0.7);
+}
+
+.s4-loading__endpoint {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.45);
+  background-color: rgba(10,22,40,0.2);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+}
+
+/* iframe container — zoom applied here */
+.s4-frame-container {
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+  overflow: auto;
+  padding: var(--space-5);
+}
+
+.s4-frame-container--hidden {
+  visibility: hidden;
+}
+
+.s4-iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  border: none;
+  display: block;
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 10px 40px rgba(10, 22, 40, 0.25),
+    0 2px 8px  rgba(10, 22, 40, 0.12),
+    0 0 0 1px rgba(10, 22, 40, 0.08);
+}

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"D:\\\\AI Report Genration\\\\phase 6\\\\bank-report-builder\" -Recurse -File | Where-Object { $_.FullName -notmatch \"node_modules\" } | Select-Object -ExpandProperty FullName | Sort-Object)"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════════════════════
+   BANK REPORT BUILDER — Design Tokens
+   All colors, typography, spacing, shadows defined here.
+   Never hardcode values anywhere else — always use variables.
+═══════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Brand Colors ─────────────────────────────────────── */
+  --color-navy:        #0A1628;
+  --color-blue:        #1B3A6B;
+  --color-accent:      #2E6BE6;
+  --color-accent-dark: #1A52C4;
+  --color-gold:        #C9A84C;
+
+  /* ── UI Backgrounds ───────────────────────────────────── */
+  --color-bg-app:      #F0F2F7;
+  --color-bg-sidebar:  #0A1628;
+  --color-bg-card:     #FFFFFF;
+  --color-bg-light:    #F4F6FB;
+  --color-bg-hover:    #E8F0FD;
+  --color-bg-preview:  #C8D4E8;   /* blue-grey desktop behind document */
+
+  /* ── Text Colors ──────────────────────────────────────── */
+  --color-text-primary:   #0A1628;
+  --color-text-secondary: #2C3E60;
+  --color-text-muted:     #6B7A99;
+  --color-text-light:     #B0C4E8;
+  --color-text-white:     #FFFFFF;
+
+  /* ── Border Colors ────────────────────────────────────── */
+  --color-border:       #C5D5ED;
+  --color-border-light: #E8EEF8;
+  --color-border-focus: #2E6BE6;
+
+  /* ── Status Colors ────────────────────────────────────── */
+  --color-success:      #1A7A4A;
+  --color-success-bg:   #E8F5EE;
+  --color-warning:      #D4700A;
+  --color-warning-bg:   #FEF3E2;
+  --color-error:        #C0392B;
+  --color-error-bg:     #FDECEA;
+  --color-info:         #2E6BE6;
+  --color-info-bg:      #E8F0FD;
+
+  /* ── Step Status Colors ───────────────────────────────── */
+  --color-step-inactive:  #6B7A99;
+  --color-step-active:    #2E6BE6;
+  --color-step-complete:  #1A7A4A;
+  --color-step-locked:    #C5D5ED;
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font-family:        'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono:   'Courier New', Courier, monospace;
+
+  --font-size-xs:    11px;
+  --font-size-sm:    12px;
+  --font-size-base:  13px;
+  --font-size-md:    14px;
+  --font-size-lg:    16px;
+  --font-size-xl:    18px;
+  --font-size-2xl:   22px;
+  --font-size-3xl:   28px;
+
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --line-height-tight:  1.2;
+  --line-height-normal: 1.5;
+  --line-height-loose:  1.8;
+
+  /* ── Spacing ──────────────────────────────────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+
+  /* ── Border Radius ────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-sm:   0 1px 3px rgba(10, 22, 40, 0.08);
+  --shadow-md:   0 4px 12px rgba(10, 22, 40, 0.12);
+  --shadow-lg:   0 8px 24px rgba(10, 22, 40, 0.16);
+  --shadow-xl:   0 16px 40px rgba(10, 22, 40, 0.20);
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --sidebar-width:     220px;
+  --topbar-height:     52px;
+  --step-bar-height:   64px;
+  --content-max-width: 1200px;
+
+  /* ── Transitions ──────────────────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Z-index ──────────────────────────────────────────── */
+  --z-base:     1;
+  --z-dropdown: 100;
+  --z-modal:    200;
+  --z-toast:    300;
+  --z-topbar:   400;
+}
