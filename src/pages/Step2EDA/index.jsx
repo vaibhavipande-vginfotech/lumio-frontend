@@ -57,6 +57,20 @@ const FORMATS          = ['text', 'date', 'number', 'currency', 'badge'];
 function fmtINR(n)     { return new Intl.NumberFormat('en-IN').format(Math.abs(Number(n))); }
 function fmtDisplay(n) { return 'Rs.' + Number(n).toLocaleString('en-IN'); }
 
+/** Build column config from raw Oracle column names */
+function buildColumnsFromApiCols(apiCols) {
+  return apiCols.map((col, i) => ({
+    id:      col.toLowerCase(),
+    label:   col.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+    visible: true,
+    format:  /amount|balance|total|sum/i.test(col) ? 'currency'
+           : /date|dt$/i.test(col)                 ? 'date'
+           : /type|status|flag/i.test(col)         ? 'badge'
+           : 'text',
+    order:   i,
+  }));
+}
+
 export default function Step2EDA({ context, send }) {
   const data = context.importedData;
 
@@ -65,17 +79,23 @@ export default function Step2EDA({ context, send }) {
   const [filter,      setFilter]      = useState('all');
   const [issueSearch, setIssueSearch] = useState('');
 
-  /* ── Data (records) ──────────────────────────────────── */
-  const [records,     setRecords]     = useState(MOCK_RECORDS.map(r => ({ ...r })));
+  /* ── Data (records) — real data if available, else mock ── */
+  const initialRecords = () => {
+    if (data?.records?.length) return data.records.map(r => ({ ...r }));
+    return MOCK_RECORDS.map(r => ({ ...r }));
+  };
+  const [records,     setRecords]     = useState(initialRecords);
   const [editingCell, setEditingCell] = useState(null);
   const [editValue,   setEditValue]   = useState('');
   const [dataSearch,  setDataSearch]  = useState('');
   const [typeFilter,  setTypeFilter]  = useState('all');
 
   /* ── Columns ─────────────────────────────────────────── */
-  const [columns, setColumns] = useState(
-    context.columnConfig ? [...context.columnConfig] : DEFAULT_COLUMNS.map(c => ({ ...c }))
-  );
+  const [columns, setColumns] = useState(() => {
+    if (context.columnConfig) return [...context.columnConfig];
+    if (data?.columns?.length) return buildColumnsFromApiCols(data.columns);
+    return DEFAULT_COLUMNS.map(c => ({ ...c }));
+  });
 
   /* ── Modal ───────────────────────────────────────────── */
   const [showEditModal, setShowEditModal] = useState(false);
@@ -153,7 +173,10 @@ export default function Step2EDA({ context, send }) {
       });
     });
   }
-  function resetCols() { setColumns(DEFAULT_COLUMNS.map(c => ({ ...c }))); }
+  function resetCols() {
+    if (data?.columns?.length) setColumns(buildColumnsFromApiCols(data.columns));
+    else setColumns(DEFAULT_COLUMNS.map(c => ({ ...c })));
+  }
 
   /* ── Derived ─────────────────────────────────────────── */
   const sortedCols  = [...columns].sort((a, b) => a.order - b.order);

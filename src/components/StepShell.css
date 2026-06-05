@@ -409,6 +409,45 @@
   border: 1px solid var(--color-border-light);
 }
 
+.ribbon-status--ok {
+  color: #1a7a4a;
+  background-color: #e8f7ef;
+  border: 1px solid rgba(26, 122, 74, 0.25);
+}
+
+/* Secondary (outline) ribbon button */
+.ribbon-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 30px;
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-blue);
+  background: transparent;
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+.ribbon-secondary:hover:not(:disabled) {
+  background: rgba(46, 107, 230, 0.06);
+}
+.ribbon-secondary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.ribbon-secondary--ok {
+  color: #1a7a4a;
+  border-color: #1a7a4a;
+}
+
+/* Short port input */
+.ribbon-field__input--short { width: 72px; }
+
 /* ══════════════════════════════════════════════════════════
    WORKSPACE
 ══════════════════════════════════════════════════════════ */
